@@ -20,8 +20,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 
-app.post('/api/history', async function(req, res) {
-    console.log(req.body);
+app.post('/api/history', function(req, res) {
     if(req.body == undefined || req.body.operation == undefined) return res.sendStatus(400);
     const operation = req.body.operation;
     try {
@@ -29,7 +28,7 @@ app.post('/api/history', async function(req, res) {
     } catch (e) {
         res.sendStatus(500);
         res.send();
-        return;    
+        return;
     }
     res.sendStatus(201);
     res.send();

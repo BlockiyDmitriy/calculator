@@ -37,31 +37,32 @@ const Calculator = () => {
     const handlerEqual = () => {
 
         if (number && number2) {
+            let result;
             switch (functionType) {
                 case '+':
-                    setNumber(`${parseFloat(number2) + parseFloat(number)}`)
+                    setNumber(result = `${parseFloat(number2) + parseFloat(number)}`)
                     break;
 
                 case '-':
-                    setNumber(`${parseFloat(number2) - parseFloat(number)}`)
+                    setNumber(result = `${parseFloat(number2) - parseFloat(number)}`)
                     break;
 
                 case '%':
-                    setNumber(`${parseFloat(number2) * 100 / parseFloat(number)}`)
+                    setNumber(result = `${parseFloat(number2) * 100 / parseFloat(number)}`)
                     break;
 
                 case '/':
-                    setNumber(`${parseFloat(number2) / parseFloat(number)}`)
+                    setNumber(result = `${parseFloat(number2) / parseFloat(number)}`)
                     break;
 
                 case '*':
-                    setNumber(`${parseFloat(number2) * parseFloat(number)}`)
+                    setNumber(result = `${parseFloat(number2) * parseFloat(number)}`)
                     break;
             }
+            sendOperation(`${number2} ${functionType} ${number} = ${result}`);
+            setNumber2('');
+            setFunctionType('');
         }
-        sendOperation(`${number2} ${functionType} ${number}`);
-        setNumber2('');
-        setFunctionType('');
     };
 
     const sendOperation = (value) => {
