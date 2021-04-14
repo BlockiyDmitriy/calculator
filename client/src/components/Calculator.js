@@ -5,7 +5,6 @@ import Row from './Row';
 import History from './History'
 import './styles/Styles.css'
 import axios from 'axios'
-import qs from 'qs'
 
 const Calculator = () => {
     const [number, setNumber] = useState('');

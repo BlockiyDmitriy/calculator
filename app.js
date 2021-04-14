@@ -34,5 +34,5 @@ app.post('/api/history', async function(req, res) {
     res.sendStatus(201);
     res.send();
 });
-
+// АЛО!?
 app.listen(PORT);
